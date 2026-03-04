@@ -1,24 +1,53 @@
 <script setup>
-import { ref, onMounted, provide } from 'vue'
+import { ref, watch, onMounted, provide } from 'vue'
 import AppHeader from './components/AppHeader.vue'
 
 const allData = ref({})
 const seasons = ref([])
 const selectedSeason = ref('')
 const loading = ref(true)
+const loadingSeasons = ref({}) // track which seasons are being fetched
+
+const BASE = import.meta.env.BASE_URL
+
+async function loadSeason(season) {
+  if (allData.value[season]) return // already loaded
+  if (loadingSeasons.value[season]) return // already fetching
+
+  loadingSeasons.value[season] = true
+  try {
+    const resp = await fetch(`${BASE}data/${season}.json`)
+    const players = await resp.json()
+    allData.value = { ...allData.value, [season]: players }
+  } catch (e) {
+    console.error(`Failed to load season ${season}:`, e)
+  } finally {
+    loadingSeasons.value[season] = false
+  }
+}
 
 onMounted(async () => {
   try {
-    const resp = await fetch(import.meta.env.BASE_URL + 'data/seasons.json')
-    const data = await resp.json()
-    allData.value = data
-    seasons.value = Object.keys(data).sort()
-    selectedSeason.value = seasons.value[seasons.value.length - 1]
+    // Load the season index (tiny file listing available seasons)
+    const resp = await fetch(`${BASE}data/seasons.json`)
+    
+    const list = await resp.json()
+    seasons.value = list.sort()
+  
+    selectedSeason.value = list[list.length - 1]
+
+    // Load all seasons for player trend charts
+    await Promise.all(list.map(s => loadSeason(s)))
   } catch (e) {
-    console.error('Failed to load season data:', e)
+    console.error('Failed to load season index:', e)
   } finally {
     loading.value = false
   }
+})
+
+// Lazy-load when user switches season (in case it wasn't pre-loaded)
+watch(selectedSeason, (s) => {
+  if (s) loadSeason(s)
 })
 
 // Provide data globally to all child components

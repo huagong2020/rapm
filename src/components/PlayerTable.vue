@@ -27,7 +27,7 @@ function valClass(v) {
 }
 
 function fmtVal(v) {
-  return (v >= 0 ? '+' : '') + v.toFixed(2)
+  return (v >= 0 ? '+' : '') + v.toFixed(1)
 }
 
 function goToPlayer(id) {
@@ -228,6 +228,6 @@ td {
   .player-name {
     max-width: 110px;
   }
-  
+
 }
 </style>
