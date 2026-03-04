@@ -45,6 +45,7 @@ function goHome() {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(12px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .header-inner {

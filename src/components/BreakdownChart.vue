@@ -24,7 +24,7 @@ const errorBarPlugin = {
     const meta = chart.getDatasetMeta(0)
 
     ctx.save()
-    ctx.strokeStyle = '#eaedf4'
+    ctx.strokeStyle = '#1a1e2b'
     ctx.lineWidth = 1.5
 
     meta.data.forEach((bar, i) => {
@@ -68,11 +68,11 @@ function renderChart() {
         label: 'RAPM',
         data: [pd.orapm, pd.drapm, pd.rapm],
         backgroundColor: [
-          'rgba(59, 130, 246, 0.6)',
-          'rgba(34, 197, 94, 0.6)',
-          'rgba(245, 158, 11, 0.6)',
+          'rgba(37, 99, 235, 0.55)',
+          'rgba(22, 163, 74, 0.55)',
+          'rgba(217, 119, 6, 0.55)',
         ],
-        borderColor: ['#3b82f6', '#22c55e', '#f59e0b'],
+        borderColor: ['#2563eb', '#16a34a', '#d97706'],
         borderWidth: 2,
         borderRadius: 8,
         maxBarThickness: 80,
@@ -85,10 +85,10 @@ function renderChart() {
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#1c2233',
-          titleColor: '#eaedf4',
-          bodyColor: '#eaedf4',
-          borderColor: '#262e40',
+          backgroundColor: '#1a1e2b',
+          titleColor: '#ffffff',
+          bodyColor: '#ffffff',
+          borderColor: '#d8dde6',
           borderWidth: 1,
           titleFont: { family: 'Outfit', weight: '600' },
           bodyFont: { family: 'JetBrains Mono', size: 12 },
@@ -104,16 +104,16 @@ function renderChart() {
       },
       scales: {
         x: {
-          ticks: { color: '#7c869e', font: { family: 'Outfit', size: 13, weight: '500' } },
+          ticks: { color: '#5a6378', font: { family: 'Outfit', size: 13, weight: '500' } },
           grid: { display: false },
         },
         y: {
-          ticks: { color: '#4e576e', font: { family: 'JetBrains Mono', size: 11 } },
-          grid: { color: '#1e2536' },
+          ticks: { color: '#5a6378', font: { family: 'JetBrains Mono', size: 11 } },
+          grid: { color: '#e4e8ef' },
           title: {
             display: true,
             text: 'RAPM Value',
-            color: '#4e576e',
+            color: '#5a6378',
             font: { family: 'Outfit', size: 12, weight: '500' },
           },
         },

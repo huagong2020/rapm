@@ -1,31 +1,30 @@
 /* =========================================
    RAPM Analytics — Design System
-   Aesthetic: Editorial sports data — clean,
-   dark, confident, with warm accents
+   Aesthetic: Clean, editorial, light theme
    ========================================= */
 
 :root {
-  /* Palette */
-  --bg-deep: #08090c;
-  --bg: #0e1117;
-  --surface: #161b25;
-  --surface-hover: #1c2233;
-  --surface-raised: #212838;
-  --border: #262e40;
-  --border-subtle: #1e2536;
+  /* Palette — Light */
+  --bg-deep: #f0f2f5;
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-hover: #f0f3f7;
+  --surface-raised: #eef1f6;
+  --border: #d8dde6;
+  --border-subtle: #e4e8ef;
 
-  --text: #eaedf4;
-  --text-secondary: #7c869e;
-  --text-muted: #4e576e;
+  --text: #1a1e2b;
+  --text-secondary: #5a6378;
+  --text-muted: #8c95a8;
 
-  --accent: #3b82f6;
-  --accent-soft: rgba(59, 130, 246, 0.12);
-  --green: #22c55e;
-  --green-soft: rgba(34, 197, 94, 0.12);
-  --red: #ef4444;
-  --red-soft: rgba(239, 68, 68, 0.12);
-  --amber: #f59e0b;
-  --amber-soft: rgba(245, 158, 11, 0.12);
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --green: #16a34a;
+  --green-soft: rgba(22, 163, 74, 0.08);
+  --red: #dc2626;
+  --red-soft: rgba(220, 38, 38, 0.08);
+  --amber: #d97706;
+  --amber-soft: rgba(217, 119, 6, 0.08);
 
   /* Typography */
   --font-display: 'Outfit', sans-serif;

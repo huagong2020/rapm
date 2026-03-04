@@ -31,7 +31,7 @@ function fmtVal(v) {
 
 .stat-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .stat-label {
@@ -63,9 +63,9 @@ function fmtVal(v) {
 .amber .stat-value { color: var(--amber); }
 
 /* Subtle border glow */
-.accent { border-color: rgba(59, 130, 246, 0.2); }
-.green { border-color: rgba(34, 197, 94, 0.2); }
-.amber { border-color: rgba(245, 158, 11, 0.2); }
+.accent { border-color: rgba(37, 99, 235, 0.25); }
+.green { border-color: rgba(22, 163, 74, 0.25); }
+.amber { border-color: rgba(217, 119, 6, 0.25); }
 
 @media (max-width: 640px) {
   .stat-card { padding: 14px 10px; }

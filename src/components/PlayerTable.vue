@@ -90,6 +90,7 @@ function goToPlayer(id) {
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--surface);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .table-scroll {
@@ -100,6 +101,7 @@ function goToPlayer(id) {
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 thead th {
@@ -139,7 +141,8 @@ thead th.sorted {
 }
 
 .col-name {
-  min-width: 180px;
+  width: 200px;
+  max-width: 200px;
   cursor: default !important;
 }
 
@@ -174,11 +177,15 @@ td {
   align-items: center;
   gap: 12px;
   font-weight: 500;
+  width: 200px;
+  max-width: 200px;
 }
 
 .player-name {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 140px;
 }
 
 .cell-se {
@@ -215,7 +222,12 @@ td {
     display: none;
   }
   .col-name {
-    min-width: 140px;
+    width: 160px;
+    max-width: 160px;
   }
+  .player-name {
+    max-width: 110px;
+  }
+  
 }
 </style>
