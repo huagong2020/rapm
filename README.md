@@ -1,4 +1,4 @@
-# 🏀 RAPM Analytics
+# RAPM
 
 A responsive basketball analytics dashboard built with **Vue 3 + Vite**, showing Regularized Adjusted Plus-Minus (RAPM) player rankings.
 
@@ -31,52 +31,10 @@ npm run build
 npm run preview
 ```
 
-## Deploy to GitHub Pages
-
-### Option 1: GitHub Actions (recommended)
-
-1. Create a new repo on GitHub named `rapm-analytics`
-2. Push this project:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/rapm-analytics.git
-   git push -u origin main
-   ```
-3. In your repo, go to **Settings → Pages**
-4. Under **Source**, select **GitHub Actions**
-5. The included `.github/workflows/deploy.yml` will auto-build and deploy on every push
-6. Your site will be live at `https://YOUR_USERNAME.github.io/rapm-analytics/`
-
-### Option 2: Manual deploy
-
-```bash
-npm run build
-npx gh-pages -d dist
-```
-
-> **Important**: Update `base` in `vite.config.js` to match your repo name:
-> ```js
-> base: '/your-repo-name/'
-> ```
-
-## Adding New Seasons
-
-```bash
-python3 scripts/add_season.py path/to/new_season.csv "2023-24"
-```
-
-This merges the new season into `public/data/seasons.json`. The CSV must have these columns:
-`player, off_rapm, def_rapm, total_rapm, se_off, se_def, se_total, cov_off_def, id, Player`
-
-After adding, commit and push — the site auto-redeploys.
-
 ## Project Structure
 
 ```
-rapm-analytics/
+rapm/
 ├── public/
 │   └── data/
 │       └── seasons.json          # All season data
