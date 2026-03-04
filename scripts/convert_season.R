@@ -26,21 +26,21 @@ if (length(args) != 2) {
 }
 
 csv_path <- args[1]
-season_label <- '2024-25'
+season_label <- '1997-98'
 
 # ---- Paths ----
 # Determine project root (assumes script is in scripts/)
-script_dir <- dirname(sys.frame(1)$ofile %||% ".")
-project_root <- file.path(script_dir, "..")
+# script_dir <- dirname(sys.frame(1)$ofile %||% ".")
+# project_root <- file.path(script_dir, "..")
 data_dir <- '/Users/hg37/Desktop/rapm/public/data' #file.path(project_root, "public", "data")
 
 # Create data dir if needed
-if (!dir.exists(data_dir)) {
-  dir.create(data_dir, recursive = TRUE)
-}
+# if (!dir.exists(data_dir)) {
+#   dir.create(data_dir, recursive = TRUE)
+# }
 
 # ---- Read CSV ----
-df <- read.csv('/Users/hg37/Desktop/df_result2.csv', stringsAsFactors = FALSE)
+df <- read.csv(paste0('/Users/hg37/Desktop/df_result',substr(season_label,1,4),'.csv'), stringsAsFactors = FALSE)
 
 # ---- Clean player names (insert space before capitals) ----
 clean_name <- function(name) {

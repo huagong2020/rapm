@@ -30,7 +30,7 @@ function goHome() {
         :value="selectedSeason"
         @change="emit('update:selectedSeason', $event.target.value)"
       >
-        <option v-for="s in seasons" :key="s" :value="s">{{ s }} Season</option>
+        <option v-for="s in seasons" :key="s" :value="s">{{ s }}</option>
       </select>
     </div>
   </header>
