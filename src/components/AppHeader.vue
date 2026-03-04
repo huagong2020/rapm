@@ -20,9 +20,8 @@ function goHome() {
   <header class="header">
     <div class="container header-inner">
       <div class="logo" @click="goHome">
-        <span class="logo-icon">🏀</span>
         <div class="logo-text">
-          RAPM<span class="logo-accent">analytics</span>
+          NBA RAPM<span class="logo-accent"></span>
         </div>
       </div>
       <select
