@@ -17,17 +17,17 @@
 library(jsonlite)
 
 # ---- Parse arguments ----
-args <- commandArgs(trailingOnly = TRUE)
+# args <- commandArgs(trailingOnly = TRUE)
+# 
+# if (length(args) != 2) {
+#   cat("Usage: Rscript scripts/convert_season.R <csv_file> <season_label>\n")
+#   cat("Example: Rscript scripts/convert_season.R data/df_result.csv \"2024-25\"\n")
+#   quit(status = 1)
+# }
+# 
+# csv_path <- args[1]
 
-if (length(args) != 2) {
-  cat("Usage: Rscript scripts/convert_season.R <csv_file> <season_label>\n")
-  cat("Example: Rscript scripts/convert_season.R data/df_result.csv \"2024-25\"\n")
-  quit(status = 1)
-}
-
-csv_path <- args[1]
-
-for (j in 1997:2026) {
+for (j in 2026:2026) {
   print(j)
   season_label <- paste0(j-1,'-',substr(j,3,4))
   
@@ -74,24 +74,24 @@ for (j in 1997:2026) {
   cat(sprintf("✓ Wrote %d players → %s\n", nrow(players), season_file))
   
   # ---- Update seasons index ----
-  index_file <- file.path(data_dir, "seasons.json")
-  
-  if (file.exists(index_file)) {
-    existing_seasons <- fromJSON(index_file)
-  } else {
-    existing_seasons <- character(0)
-  }
-  
-  # Add new season if not already present
-  if (!(season_label %in% existing_seasons)) {
-    updated_seasons <- sort(c(existing_seasons, season_label))
-  } else {
-    updated_seasons <- sort(existing_seasons)
-  }
-  
-  write_json(as.list(updated_seasons), index_file, auto_unbox = TRUE, pretty = FALSE)
-  cat(sprintf("✓ Updated season index: %s\n", paste(updated_seasons, collapse = ", ")))
-  cat("Done!\n")
+  # index_file <- file.path(data_dir, "seasons.json")
+  # 
+  # if (file.exists(index_file)) {
+  #   existing_seasons <- fromJSON(index_file)
+  # } else {
+  #   existing_seasons <- character(0)
+  # }
+  # 
+  # # Add new season if not already present
+  # if (!(season_label %in% existing_seasons)) {
+  #   updated_seasons <- sort(c(existing_seasons, season_label))
+  # } else {
+  #   updated_seasons <- sort(existing_seasons)
+  # }
+  # 
+  # write_json(as.list(updated_seasons), index_file, auto_unbox = TRUE, pretty = FALSE)
+  # cat(sprintf("✓ Updated season index: %s\n", paste(updated_seasons, collapse = ", ")))
+  # cat("Done!\n")
 }
 
 
