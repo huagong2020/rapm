@@ -4,6 +4,7 @@ import { useRouter, useRoute } from 'vue-router'
 const props = defineProps({
   seasons: Array,
   selectedSeason: String,
+  updateDate: String,
 })
 
 const emit = defineEmits(['update:selectedSeason'])
@@ -24,14 +25,17 @@ function goHome() {
           NBA RAPM<span class="logo-accent"></span>
         </div>
       </div>
-      <select
-        v-if="route.name === 'rankings'"
-        class="season-select"
-        :value="selectedSeason"
-        @change="emit('update:selectedSeason', $event.target.value)"
-      >
-        <option v-for="s in seasons" :key="s" :value="s">{{ s }}</option>
-      </select>
+      <!--  -->
+      <div class="header-right" > 
+        <span v-if="updateDate" class="update-note">Last update: {{ updateDate }}</span>
+        <select v-if="route.name === 'rankings'"
+          class="season-select"
+          :value="selectedSeason"
+          @change="emit('update:selectedSeason', $event.target.value)"
+        >
+          <option v-for="s in seasons" :key="s" :value="s">{{ s }} Season</option>
+        </select>
+      </div>
     </div>
   </header>
 </template>
@@ -83,10 +87,10 @@ function goHome() {
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 8px 14px;
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
   font-family: var(--font-display);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   cursor: pointer;
   outline: none;
@@ -97,6 +101,17 @@ function goHome() {
   border-color: var(--accent);
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.update-note {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
 @media (max-width: 640px) {
   .logo-text {
     font-size: 17px;
@@ -104,6 +119,11 @@ function goHome() {
   .season-select {
     font-size: 12px;
     padding: 6px 10px;
+  }
+
+  .update-note {
+      font-size: 6x;
+  color: var(--text-muted);
   }
 }
 </style>

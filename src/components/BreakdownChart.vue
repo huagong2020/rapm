@@ -90,8 +90,8 @@ function renderChart() {
           bodyColor: '#ffffff',
           borderColor: '#d8dde6',
           borderWidth: 1,
-          titleFont: { family: 'Outfit', weight: '600' },
-          bodyFont: { family: 'JetBrains Mono', size: 12 },
+          titleFont: { family: 'Roboto', weight: '600' },
+          bodyFont: { family: 'Roboto Mono', size: 12 },
           padding: 12,
           cornerRadius: 8,
           callbacks: {
@@ -104,17 +104,17 @@ function renderChart() {
       },
       scales: {
         x: {
-          ticks: { color: '#5a6378', font: { family: 'Outfit', size: 13, weight: '500' } },
+          ticks: { color: '#5a6378', font: { family: 'Roboto', size: 13, weight: '500' } },
           grid: { display: false },
         },
         y: {
-          ticks: { color: '#5a6378', font: { family: 'JetBrains Mono', size: 11 } },
+          ticks: { color: '#5a6378', font: { family: 'Roboto Mono', size: 11 } },
           grid: { color: '#e4e8ef' },
           title: {
             display: true,
             text: 'RAPM Value',
             color: '#5a6378',
-            font: { family: 'Outfit', size: 12, weight: '500' },
+            font: { family: 'Roboto', size: 12, weight: '500' },
           },
         },
       },

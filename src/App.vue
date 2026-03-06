@@ -6,6 +6,7 @@ const allData = ref({})
 const seasons = ref([])
 const selectedSeason = ref('')
 const loading = ref(true)
+const updateDate = ref('')
 const loadingSeasons = ref({}) // track which seasons are being fetched
 
 const BASE = import.meta.env.BASE_URL
@@ -28,16 +29,23 @@ async function loadSeason(season) {
 
 onMounted(async () => {
   try {
-    // Load the season index (tiny file listing available seasons)
+    // Load season index
     const resp = await fetch(`${BASE}data/seasons.json`)
-    
-    const list = await resp.json()
-    seasons.value = list.sort()
-  
+    const raw = await resp.json()
+    let list = Array.isArray(raw) ? raw : Object.keys(raw)
+    list = [...list].sort()
+    seasons.value = list
     selectedSeason.value = list[list.length - 1]
 
-    // Load all seasons for player trend charts
+    // Load all seasons
     await Promise.all(list.map(s => loadSeason(s)))
+
+    // Load update date
+    try {
+      const upResp = await fetch(`${BASE}data/update.json`)
+      const upRaw = await upResp.json()
+      updateDate.value = Array.isArray(upRaw) ? upRaw[0] : upRaw
+    } catch {}
   } catch (e) {
     console.error('Failed to load season index:', e)
   } finally {
@@ -60,6 +68,7 @@ provide('selectedSeason', selectedSeason)
   <div class="app-root">
     <AppHeader
       :seasons="seasons"
+      :updateDate="updateDate"
       v-model:selectedSeason="selectedSeason"
     />
     <main class="container">
@@ -72,6 +81,7 @@ provide('selectedSeason', selectedSeason)
         :allData="allData"
         :seasons="seasons"
         :selectedSeason="selectedSeason"
+        
       />
     </main>
     <footer class="app-footer">

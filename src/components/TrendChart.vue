@@ -77,7 +77,7 @@ function renderChart() {
         legend: {
           labels: {
             color: '#5a6378',
-            font: { family: 'Outfit', size: 12 },
+            font: { family: 'Roboto', size: 12 },
             usePointStyle: true,
             pointStyle: 'circle',
             padding: 20,
@@ -89,25 +89,25 @@ function renderChart() {
           bodyColor: '#ffffff',
           borderColor: '#d8dde6',
           borderWidth: 1,
-          titleFont: { family: 'Outfit', weight: '600' },
-          bodyFont: { family: 'JetBrains Mono', size: 12 },
+          titleFont: { family: 'Roboto', weight: '600' },
+          bodyFont: { family: 'Roboto Mono', size: 12 },
           padding: 12,
           cornerRadius: 8,
         },
       },
       scales: {
         x: {
-          ticks: { color: '#5a6378', font: { family: 'Outfit', size: 12 } },
+          ticks: { color: '#5a6378', font: { family: 'Roboto', size: 12 } },
           grid: { color: '#e4e8ef' },
         },
         y: {
-          ticks: { color: '#5a6378', font: { family: 'JetBrains Mono', size: 11 } },
+          ticks: { color: '#5a6378', font: { family: 'Roboto Mono', size: 11 } },
           grid: { color: '#e4e8ef' },
           title: {
             display: true,
             text: 'RAPM Value',
             color: '#5a6378',
-            font: { family: 'Outfit', size: 12, weight: '500' },
+            font: { family: 'Roboto', size: 12, weight: '500' },
           },
         },
       },
