@@ -51,6 +51,13 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
+
+    // Load ClustrMaps tracking
+  const script = document.createElement('script')
+  script.type = 'text/javascript'
+  script.id = 'clustrmaps'
+  script.src = '//clustrmaps.com/map_v2.js?d=9KeY2ANnsjqXQVAmOPr-JJHVROW0RbjGxah6d_uqyCk&cl=ffffff&w=a'
+  document.head.appendChild(script)
 })
 
 // Lazy-load when user switches season (in case it wasn't pre-loaded)
