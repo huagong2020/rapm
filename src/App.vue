@@ -56,7 +56,7 @@ onMounted(async () => {
   const script = document.createElement('script')
   script.type = 'text/javascript'
   script.id = 'clustrmaps'
-  script.src = '//clustrmaps.com/map_v2.js?d=9KeY2ANnsjqXQVAmOPr-JJHVROW0RbjGxah6d_uqyCk&cl=ffffff&w=a'
+  script.src = '//clustrmaps.com/map_v2.js?d=9KeY2ANnsjqXQVAmOPr-JJHVROW0RbjGxah6d_uqyCk&cl=ffffff'
   document.head.appendChild(script)
 })
 
